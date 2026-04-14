@@ -6,14 +6,12 @@ pipeline {
         jdk 'JDK'
     }
     stages {
-       
-stage('Checkout') {
-    steps {
-        git branch: 'main',
-            url: 'https://github.com/prasadmv-collab/MyGradleApp.git',
-            credentialsId: 'github-pat'
-    }
-}
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/prasadmv-collab/MyGradleApp.git'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'gradle build'  // Run Gradle build
